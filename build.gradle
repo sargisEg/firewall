@@ -1,19 +1,48 @@
 plugins {
-    id("java")
+    id 'java'
+    id 'org.springframework.boot' version '3.1.2'
+    id 'io.spring.dependency-management' version '1.1.2'
+    id 'io.freefair.lombok' version '8.1.0'
 }
 
-group = "org.firewall"
-version = "1.0-SNAPSHOT"
+group 'org.firewall'
+version '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility '17'
+    targetCompatibility '17'
+}
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+ext {
+    set('junit-jupiter.version', '5.10.0')
+    set('springCloudVersion', '2022.0.4')
 }
 
-tasks.test {
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+test {
     useJUnitPlatform()
 }

@@ -1,0 +1,41 @@
+.expandable {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.expandable-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expandable-header {
+  background-color: #1f2d3d; /* Dark blue background color */
+  color: #fff; /* White text color */
+  padding: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.expandable-content {
+  padding: 15px;
+  display: none;
+  background-color: #fff; /* White background color */
+  color: #333; /* Dark text color */
+}
+
+.expandable-content p {
+  margin: 0;
+}
+
+.expandable-item.active .expandable-content {
+  display: block;
+}
+
+/* Highlight successful actions */
+.success {
+  color: #2ecc71; /* Green color */
+}
