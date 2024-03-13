@@ -1,0 +1,21 @@
+.idea
+.gradle
+build
+*.iml
+*.log
+**/.gradle
+**/logs
+*/bin
+**/.DS_Store
+.settings
+.project
+.classpath
+target/*
+.gradle/
+build/
+
+# idea
+.idea/**
+*/out/**
+*/build/**
+out/
