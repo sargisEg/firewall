@@ -1,4 +1,4 @@
-package org.firewall.rule.service;
+package org.firewall.service;
 
 public interface RuleService {
 

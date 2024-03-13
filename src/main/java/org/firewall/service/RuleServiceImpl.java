@@ -1,4 +1,4 @@
-package org.firewall.rule.service;
+package org.firewall.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

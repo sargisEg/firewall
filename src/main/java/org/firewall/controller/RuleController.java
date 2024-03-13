@@ -1,4 +1,4 @@
-package org.firewall.rule.controller;
+package org.firewall.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
