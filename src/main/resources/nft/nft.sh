@@ -2,9 +2,9 @@
 
 TEXT=$1
 
-if [ ! -f "/etc/vipilink.rules" ]; then
-    sudo touch /etc/vipilink.rules
+if [ ! -f "/etc/firewall.rules" ]; then
+    sudo touch /etc/firewall.rules
 fi
 
-echo "$TEXT" | sudo tee /etc/vipilink.rules >/dev/null
+echo "$TEXT" | sudo tee /etc/firewall.rules >/dev/null
 sudo nft -f /etc/nftables.conf
