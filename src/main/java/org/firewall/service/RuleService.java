@@ -1,5 +1,11 @@
 package org.firewall.service;
 
-public interface RuleService {
+import org.firewall.model.entity.CustomRules;
 
+import java.io.IOException;
+
+public interface RuleService {
+    void updateFirewallRules(CustomRules customRules) throws IOException;
+
+    CustomRules getRules();
 }

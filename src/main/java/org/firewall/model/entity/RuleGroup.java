@@ -10,10 +10,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class RuleGroup {
-
-    private String id;
 
     private Set<Rule> rules;
 

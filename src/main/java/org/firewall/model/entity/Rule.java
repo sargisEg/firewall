@@ -2,17 +2,14 @@ package org.firewall.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.firewall.model.enums.PolicyType;
+import org.firewall.model.enums.Protocol;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Rule {
-
-    @EqualsAndHashCode.Exclude
-    private String id;
 
     private Boolean isEnabled;
 
@@ -22,12 +19,8 @@ public class Rule {
 
     private String destinationPort;
 
+    private Protocol destinationPortProtocol;
+
     private PolicyType policy;
-
-    @EqualsAndHashCode.Exclude
-    private String command;
-
-    @EqualsAndHashCode.Exclude
-    private Long orderNumber;
 
 }
