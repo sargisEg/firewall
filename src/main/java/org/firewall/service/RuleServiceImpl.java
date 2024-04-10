@@ -23,8 +23,8 @@ public class RuleServiceImpl implements RuleService {
         final StringBuilder config = new StringBuilder("table ip custom\nflush table ip custom\n\ntable ip custom {\n");
 
         buildInput(config, customRules.getInput());
-        buildInput(config, customRules.getOutput());
-        buildInput(config, customRules.getForward());
+        buildOutput(config, customRules.getOutput());
+        buildForward(config, customRules.getForward());
 
         final String path = extractNftScriptFileFromResourcesAndGetPath() ;
 
