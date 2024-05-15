@@ -7,4 +7,4 @@ if [ ! -f "/etc/firewall.rules" ]; then
 fi
 
 echo "$TEXT" | sudo tee /etc/firewall.rules >/dev/null
-#sudo nft -f /etc/nftables.conf
+sudo systemctl restart nftables
