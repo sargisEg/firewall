@@ -42,15 +42,15 @@ public class RuleServiceImpl implements RuleService {
     private void buildInput(StringBuilder config, RuleGroup ruleGroup) {
         config.append("\tchain INPUT {\n").append("\t\ttype filter hook forward priority filter;\n");
         ruleGroup.getRules().forEach(rule -> config.append("\t\t\t").append(RuleCommandGenerator.getCommand(rule)));
-        config.append("\t\tpolicy ").append(ruleGroup.getPolicyType().getValue()).append(";\n");
-        config.append("\t}\n").append("}");
+        config.append("\n\t\tpolicy ").append(ruleGroup.getPolicyType().getValue()).append(";\n");
+        config.append("\t}\n");
     }
 
     private void buildOutput(StringBuilder config, RuleGroup ruleGroup) {
         config.append("\tchain OUTPUT {\n").append("\t\ttype filter hook forward priority filter;\n");
         ruleGroup.getRules().forEach(rule -> config.append("\t\t\t").append(RuleCommandGenerator.getCommand(rule)));
         config.append("\t\tpolicy ").append(ruleGroup.getPolicyType().getValue()).append(";\n");
-        config.append("\t}\n").append("}");
+        config.append("\t}\n");
     }
 
     private void buildForward(StringBuilder config, RuleGroup ruleGroup) {
