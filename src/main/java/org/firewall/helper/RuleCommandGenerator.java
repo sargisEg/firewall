@@ -1,6 +1,7 @@
 package org.firewall.helper;
 
 import org.firewall.model.entity.Rule;
+import org.firewall.model.enums.PolicyType;
 import org.firewall.model.enums.Protocol;
 import org.springframework.util.StringUtils;
 
@@ -14,8 +15,15 @@ public class RuleCommandGenerator {
         addSourceAddress(rule.getSourceAddress(), ruleBuilder);
         addDestinationAddress(rule.getDestinationAddress(), ruleBuilder);
         addDestinationPort(rule.getDestinationPort(), rule.getDestinationPortProtocol(), ruleBuilder);
+        addPolicy(rule.getPolicy(), ruleBuilder);
 
         return ruleBuilder.toString();
+    }
+
+    private static void addPolicy(PolicyType policy, StringBuilder ruleBuilder) {
+        if (policy != null) {
+            ruleBuilder.append(policy.getValue());
+        }
     }
 
     private static void addDestinationPort(String destinationPort, Protocol protocol, StringBuilder ruleBuilder) {

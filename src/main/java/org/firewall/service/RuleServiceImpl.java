@@ -40,22 +40,22 @@ public class RuleServiceImpl implements RuleService {
     }
 
     private void buildInput(StringBuilder config, RuleGroup ruleGroup) {
-        config.append("\tchain INPUT {\n").append("\t\ttype filter hook forward priority filter;\n");
-        ruleGroup.getRules().forEach(rule -> config.append("\t\t\t").append(RuleCommandGenerator.getCommand(rule)));
-        config.append("\n\t\tpolicy ").append(ruleGroup.getPolicyType().getValue()).append(";\n");
+        config.append("\tchain INPUT {\n").append("\t\ttype filter hook input priority filter;\n");
+        ruleGroup.getRules().forEach(rule -> config.append("\t\t\t").append(RuleCommandGenerator.getCommand(rule)).append("\n"));
+        config.append("\t\tpolicy ").append(ruleGroup.getPolicyType().getValue()).append(";\n");
         config.append("\t}\n");
     }
 
     private void buildOutput(StringBuilder config, RuleGroup ruleGroup) {
-        config.append("\tchain OUTPUT {\n").append("\t\ttype filter hook forward priority filter;\n");
-        ruleGroup.getRules().forEach(rule -> config.append("\t\t\t").append(RuleCommandGenerator.getCommand(rule)));
+        config.append("\tchain OUTPUT {\n").append("\t\ttype filter hook output priority filter;\n");
+        ruleGroup.getRules().forEach(rule -> config.append("\t\t\t").append(RuleCommandGenerator.getCommand(rule)).append("\n"));
         config.append("\t\tpolicy ").append(ruleGroup.getPolicyType().getValue()).append(";\n");
         config.append("\t}\n");
     }
 
     private void buildForward(StringBuilder config, RuleGroup ruleGroup) {
         config.append("\tchain FORWARD {\n").append("\t\ttype filter hook forward priority filter;\n");
-        ruleGroup.getRules().forEach(rule -> config.append("\t\t\t").append(RuleCommandGenerator.getCommand(rule)));
+        ruleGroup.getRules().forEach(rule -> config.append("\t\t\t").append(RuleCommandGenerator.getCommand(rule)).append("\n"));
         config.append("\t\tpolicy ").append(ruleGroup.getPolicyType().getValue()).append(";\n");
         config.append("\t}\n").append("}");
     }
